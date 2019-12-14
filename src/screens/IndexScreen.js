@@ -23,6 +23,7 @@ const IndexScreen = ({ navigation }) => {
 			<FlatList
 				data={state}
 				keyExtractor={(blogPost) => blogPost.title}
+				ListEmptyComponent={<Text>No posts to show...</Text>}
 				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
 		borderColor: 'gray'
 	},
 	title: {
-		fontSize: 18
+		fontSize: 18,
 	},
 	icon: {
 		fontSize: 24
