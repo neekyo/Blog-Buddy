@@ -27,12 +27,17 @@ ShowScreen.navigationOptions = ({ navigation }) => {
 
 const styles = StyleSheet.create({
 	postTitle: {
-		fontSize: 22,
+		fontSize: 18,
 		alignSelf: 'center',
-		paddingBottom: 10
+		paddingBottom: 10,
+		marginTop: 5,
+		fontWeight: '600',
+		color: 'purple',
+		textTransform: 'uppercase'
 	},
 	postContent: {
-		fontSize: 16
+		fontSize: 16,
+		marginLeft: 10
 	}
 });
 

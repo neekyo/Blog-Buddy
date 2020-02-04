@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import { Context, Provider } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
-
+require('../../assets/bg.png')
+	
 const IndexScreen = ({ navigation }) => {
 	const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
 
@@ -19,11 +20,12 @@ const IndexScreen = ({ navigation }) => {
 	}, []);
 
 	return (
+		<Image>
 		<View>
 			<FlatList
 				data={state}
 				keyExtractor={(blogPost) => blogPost.title}
-				ListEmptyComponent={<Text>No posts to show...</Text>}
+				ListEmptyComponent={<Text style={styles.post}>No posts to show...</Text>}
 				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
@@ -40,6 +42,7 @@ const IndexScreen = ({ navigation }) => {
 				}}
 			/>
 		</View>
+		</Image>
 	);
 };
 
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
 		borderColor: 'gray'
 	},
 	title: {
-		fontSize: 18,
+		fontSize: 17
 	},
 	icon: {
 		fontSize: 24
@@ -71,7 +74,15 @@ const styles = StyleSheet.create({
 	create: {
 		fontSize: 30,
 		marginRight: 6
-	}
+	},
+	post: {
+		fontSize: 18,
+		flexDirection: 'row',
+		alignSelf: 'center',
+		marginTop: 5
+	},
+	backgroundImage: 'url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png)'
+	
 });
 
 export default IndexScreen;
