@@ -19,7 +19,7 @@ const IndexScreen = ({ navigation }) => {
 	}, []);
 
 	return (
-		<ImageBackground source={require('../../assets/bg.png')} style={{ width: '100%', height: '100%' }}>
+		<ImageBackground source={require('../../assets')} style={{ width: '100%', height: '100%' }}>
 			<View>
 				<FlatList
 					data={state}
@@ -65,10 +65,12 @@ const styles = StyleSheet.create({
 		borderColor: 'gray'
 	},
 	title: {
-		fontSize: 17
+		fontSize: 17,
+		color: 'white'
 	},
 	icon: {
-		fontSize: 24
+		fontSize: 24,
+		color: 'red'
 	},
 	create: {
 		fontSize: 30,

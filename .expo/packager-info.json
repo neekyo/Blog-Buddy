@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 18370,
-  "expoServerNgrokUrl": "https://3n-nrj.neekyo.blog.exp.direct",
-  "packagerNgrokUrl": "https://packager.3n-nrj.neekyo.blog.exp.direct",
-  "ngrokPid": 18383
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
