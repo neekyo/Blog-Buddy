@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { Context, Provider } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
-require('../../assets/bg.png')
-	
+
 const IndexScreen = ({ navigation }) => {
 	const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
 
@@ -20,29 +19,29 @@ const IndexScreen = ({ navigation }) => {
 	}, []);
 
 	return (
-		<Image>
-		<View>
-			<FlatList
-				data={state}
-				keyExtractor={(blogPost) => blogPost.title}
-				ListEmptyComponent={<Text style={styles.post}>No posts to show...</Text>}
-				renderItem={({ item }) => {
-					return (
-						<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
-							<View style={styles.row}>
-								<Text style={styles.title}>
-									{item.title} - {item.id}
-								</Text>
-								<TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-									<Feather style={styles.icon} name="trash" />
-								</TouchableOpacity>
-							</View>
-						</TouchableOpacity>
-					);
-				}}
-			/>
-		</View>
-		</Image>
+		<ImageBackground source={require('../../assets/bg.png')} style={{ width: '100%', height: '100%' }}>
+			<View>
+				<FlatList
+					data={state}
+					keyExtractor={(blogPost) => blogPost.title}
+					ListEmptyComponent={<Text style={styles.post}>No posts to show...</Text>}
+					renderItem={({ item }) => {
+						return (
+							<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
+								<View style={styles.row}>
+									<Text style={styles.title}>
+										{item.title} - {item.id}
+									</Text>
+									<TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+										<Feather style={styles.icon} name="trash" />
+									</TouchableOpacity>
+								</View>
+							</TouchableOpacity>
+						);
+					}}
+				/>
+			</View>
+		</ImageBackground>
 	);
 };
 
@@ -80,9 +79,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignSelf: 'center',
 		marginTop: 5
-	},
-	backgroundImage: 'url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png)'
-	
+	}
 });
 
 export default IndexScreen;
