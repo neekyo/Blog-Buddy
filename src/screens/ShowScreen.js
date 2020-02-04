@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import { Context } from '../context/BlogContext';
 import { EvilIcons } from '@expo/vector-icons';
 
@@ -8,10 +8,12 @@ const ShowScreen = ({ navigation }) => {
 	const blogPost = state.find((blogPost) => blogPost.id === navigation.getParam('id'));
 
 	return (
-		<View>
-			<Text style={styles.postTitle}>{blogPost.title}</Text>
-			<Text style={styles.postContent}>{blogPost.content}</Text>
-		</View>
+		<ImageBackground source={require('../../assets/bg3.jpg')} style={{ width: '100%', height: '100%' }}>
+			<View>
+				<Text style={styles.postTitle}>{blogPost.title}</Text>
+				<Text style={styles.postContent}>{blogPost.content}</Text>
+			</View>
+		</ImageBackground>
 	);
 };
 

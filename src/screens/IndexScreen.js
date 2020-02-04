@@ -19,7 +19,7 @@ const IndexScreen = ({ navigation }) => {
 	}, []);
 
 	return (
-		<ImageBackground source={require('../../assets')} style={{ width: '100%', height: '100%' }}>
+		<ImageBackground source={require('../../assets/bg2.jpg')} style={{ width: '100%', height: '100%' }}>
 			<View>
 				<FlatList
 					data={state}
@@ -29,9 +29,7 @@ const IndexScreen = ({ navigation }) => {
 						return (
 							<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
 								<View style={styles.row}>
-									<Text style={styles.title}>
-										{item.title} - {item.id}
-									</Text>
+									<Text style={styles.title}>{item.title}</Text>
 									<TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
 										<Feather style={styles.icon} name="trash" />
 									</TouchableOpacity>
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 17,
-		color: 'white'
+		color: 'black'
 	},
 	icon: {
 		fontSize: 24,
